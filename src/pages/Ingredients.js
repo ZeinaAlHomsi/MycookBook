@@ -1,86 +1,58 @@
 import { useState } from "react";
 import "../styles/Ingredients.css";
 
+const allIngredients = [
+  "Salmon",
+  "Pistachios",
+  "Panko bread crumbs",
+  "Parmesan cheese",
+  "Butter",
+  "Olive oil",
+  "Dijon mustard",
+  "Lemon",
+  "Garlic",
+  "Mixed veggies",
+];
+
 export default function Ingredients() {
   const [selected, setSelected] = useState([]);
 
-  const ingredients = [
-    "Chicken",
-    "Beef",
-    "Fish",
-    "Pasta",
-    "Rice",
-    "Eggs",
-    "Potato",
-    "Tomato",
-    "Onion",
-    "Garlic",
-    "Mushroom",
-    "Spinach",
-  ];
-
-  const toggleIngredient = (item) => {
-    if (selected.includes(item)) {
-      setSelected(selected.filter((i) => i !== item));
-    } else {
-      setSelected([...selected, item]);
-    }
+  const toggleIngredient = (name) => {
+    setSelected((prev) =>
+      prev.includes(name) ? prev.filter((item) => item !== name) : [...prev, name]
+    );
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (selected.length === 0) return;
-    // For now: just show a message. In a real app you’d go to a results page.
-    alert(`Show recipes for: ${selected.join(", ")}`);
-  };
+  const clearSelection = () => setSelected([]);
 
   return (
-    <main className="main-area">
-      <section className="recipe-card">
-        <header className="recipe-header">
-          <p className="pill-label">Ingredient filters</p>
-          <h1 className="recipe-title">Choose your ingredients</h1>
-          <p className="recipe-subtitle">
-            Select one or more ingredients you have, and we’ll filter the recipe
-            eBook to show you matching ideas.
-          </p>
-        </header>
+    <main className="ingredients-page">
+      <section className="ingredients-card">
+        <h1>Filter by Ingredients</h1>
+        <p className="ingredients-intro">
+          Select the ingredients you have at home. This helps you see which
+          recipes might work for you.
+        </p>
 
-        <form className="ingredient-form" onSubmit={handleSubmit}>
-          <fieldset className="ingredient-fieldset">
-            <legend className="ingredient-legend">
-              Select ingredients:
-            </legend>
+        <form className="ingredients-form" onSubmit={(e) => e.preventDefault()}>
+          <div className="ingredients-grid">
+            {allIngredients.map((ingredient) => (
+              <label key={ingredient} className="ingredient-option">
+                <input
+                  type="checkbox"
+                  checked={selected.includes(ingredient)}
+                  onChange={() => toggleIngredient(ingredient)}
+                />
+                <span>{ingredient}</span>
+              </label>
+            ))}
+          </div>
 
-            <div className="ingredient-list">
-              {ingredients.map((item) => (
-                <label key={item} className="ingredient-option">
-                  <input
-                    type="checkbox"
-                    value={item}
-                    checked={selected.includes(item)}
-                    onChange={() => toggleIngredient(item)}
-                  />
-                  <span className="custom-checkbox" />
-                  <span className="ingredient-label-text">{item}</span>
-                </label>
-              ))}
-            </div>
-          </fieldset>
-
-          <div className="ingredient-actions">
-            <button
-              type="submit"
-              className="recipe-button"
-              disabled={selected.length === 0}
-            >
-              Show recipes
-            </button>
-
+          <div className="ingredients-actions">
             <button
               type="button"
-              className="btn-clear"
-              onClick={() => setSelected([])}
+              className="btn-clear-selection"
+              onClick={clearSelection}
             >
               Clear selection
             </button>
