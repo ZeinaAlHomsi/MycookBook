@@ -1,63 +1,66 @@
+
 .recipes-page {
   max-width: 1100px;
   margin: 0 auto;
   padding: 40px 24px 56px;
 }
 
+
 .recipes-header {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
   margin-bottom: 28px;
 }
 
 .recipes-header h1 {
-  font-size: 30px;
-  margin: 0;
+  font-size: 32px;
+  margin: 0 0 8px;
 }
 
 .recipes-header p {
-  font-size: 14px;
+  margin: 0;
+  font-size: 15px;
   color: #7a6a5b;
-  max-width: 520px;
 }
 
+
 .recipes-filter-button {
-  align-self: flex-start;
-  margin-top: 10px;
+  display: inline-block;
   padding: 10px 18px;
-  border-radius: 999px;
-  border: none;
+  margin-top: 16px;
   background: #c18f5a;
+  border-radius: 999px;
+  text-decoration: none;
   color: white;
   font-size: 14px;
+  border: none;
   cursor: pointer;
-  text-decoration: none;
 }
 
 .recipes-filter-button:hover {
   opacity: 0.9;
 }
 
+
 .recipes-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
 }
 
+
 .recipes-card {
   background: #fffaf3;
-  border-radius: 24px;
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(193, 172, 143, 0.5);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
 }
 
+
 .recipes-image-wrapper {
   width: 100%;
-  height: 220px;
+  max-height: 220px;
   overflow: hidden;
 }
 
@@ -65,24 +68,31 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .recipes-content {
-  padding: 16px 18px 20px;
+  padding: 18px 18px 20px;
 }
 
 .recipes-title {
-  font-size: 18px;
-  margin-bottom: 6px;
+  margin: 0 0 6px;
+  font-size: 20px;
 }
 
 .recipes-description {
+  margin: 0;
   font-size: 14px;
-  color: #7a6a5b;
+  color: #6b5b4a;
 }
 
-@media (max-width: 768px) {
-  .recipes-grid {
-    grid-template-columns: minmax(0, 1fr);
+
+@media (max-width: 600px) {
+  .recipes-page {
+    padding: 24px 16px 40px;
+  }
+
+  .recipes-header h1 {
+    font-size: 26px;
   }
 }
