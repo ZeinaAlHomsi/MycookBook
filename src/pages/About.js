@@ -7,14 +7,14 @@ export default function About() {
         <h1>About My Cooking Book</h1>
         <p>
           This simple cooking e-book was created to help anyone who loves food
-          but doesn&apos;t know where to start.
+          but doesn't know where to start.
         </p>
         <p>
-          It focuses on easy recipes with common ingredients, so you don&apos;t
+          It focuses on easy recipes with common ingredients, so you don't
           have to search for complicated items.
         </p>
         <p>
-          Use the &quot;Filter with your ingredients&quot; feature to quickly
+          Use the Filter with your ingredients feature to quickly
           see what you can cook based on what you already have at home.
         </p>
       </section>
