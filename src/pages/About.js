@@ -13,10 +13,10 @@ export default function About() {
           It focuses on easy recipes with common ingredients, so you don't
           have to search for complicated items.
         </p>
-        <p>
+        {/* <p>
           Use the Filter with your ingredients feature to quickly
           see what you can cook based on what you already have at home.
-        </p>
+        </p> */}
         <p>
           Not only that, but you can also contribute your own recipes to help
           others on their cooking journey. Just head over to the "Add Recipe"
