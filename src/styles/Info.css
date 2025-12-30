@@ -24,3 +24,17 @@
   color: #4b3c30;
   margin-bottom: 8px;
 }
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 18px;
+  border-radius: 999px;
+  border: none;
+  background: #c18f5a;
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}

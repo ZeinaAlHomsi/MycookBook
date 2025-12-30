@@ -1,0 +1,71 @@
+.Add-form {
+  margin-top: 20px;
+  display: grid;
+  gap: 14px;
+}
+.Add-form label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.Add-form input,
+.Add-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(193, 172, 143, 0.8);
+  background: #fffdf8;
+  font-family: inherit;
+  outline: none;
+  resize: vertical;
+}
+.Add-form textarea {
+  min-height: 120px;
+}
+
+.Add-form input:focus,
+.Add-form textarea:focus {
+  border-color: #c49345;
+  box-shadow: 0 0 0 1px rgba(196, 147, 69, 0.4);
+}
+
+
+.Add-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 18px;
+  border-radius: 999px;
+  border: none;
+  background: #c18f5a;
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.add-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 24px 56px;
+}
+
+.Add-card {
+  background: #fffaf3;
+  border-radius: 20px;
+  padding: 24px 22px 28px;
+  border: 1px solid rgba(193, 172, 143, 0.5);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.04);
+}
+
+.Add-card h1 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.Add-card p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #4b3c30;
+  margin-bottom: 8px;
+}

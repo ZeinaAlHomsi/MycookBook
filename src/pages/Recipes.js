@@ -1,31 +1,51 @@
 import { Link } from "react-router-dom";
-import { recipes } from "../data/recipesData";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "../styles/Recipes.css";
 
 export default function Recipes() {
+  const [recipes, setRecipes] = useState([]);
+
+  const fetchRecipes = async () => {
+    try {
+      const res = await axios.get("http://localhost:5000/recipe");
+      setRecipes(res.data);
+    } catch (err) {
+      console.error("Error fetching recipes:", err);
+    }
+  };
+
+  useEffect(() => {
+    fetchRecipes();
+  }, []);
+
   return (
     <main className="recipes-page">
       <section className="recipes-header">
         <h1>All Recipes</h1>
         <p>Explore all the recipes available in this cooking e-book.</p>
-
+{/* 
         <Link to="/ingredients" className="recipes-filter-button">
           Choose your Available Ingredients to Filter Recipes
-        </Link>
+        </Link> */}
       </section>
 
       <section className="recipes-grid">
         {recipes.map((recipe) => (
-          <article key={recipe.id} className="recipes-card">
+          <article key={recipe.ID} className="recipes-card">
             <div className="recipes-image-wrapper">
-              <img src={recipe.image} alt={recipe.title} className="recipes-image" />
+              <img
+                src={recipe.Photo || "https://via.placeholder.com/400x250?text=No+Image"}
+                alt={recipe.Rname}
+                className="recipes-image"
+              />
             </div>
 
             <div className="recipes-content">
-              <h2 className="recipes-title">{recipe.title}</h2>
-              <p className="recipes-description">{recipe.description}</p>
+              <h2 className="recipes-title">{recipe.Rname}</h2>
+              <p className="recipes-description">{recipe.Description}</p>
 
-              <Link to={`/recipe/${recipe.id}`} className="recipe-button">
+              <Link to={`/recipe/${recipe.ID}`} className="recipe-button">
                 View recipe
               </Link>
             </div>
